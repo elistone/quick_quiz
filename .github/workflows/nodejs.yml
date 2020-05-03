@@ -1,0 +1,35 @@
+name: Vue.JS CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: run npm install
+        run: |
+          npm ci
+      - name: run npm run test:unit
+        run: |
+          npm run test:unit
+      - name: cypress e2e:run
+        uses: cypress-io/github-action@v1
+        with:
+          start: npm run serve
+          wait-on: http://localhost:8080/
+          config_file: cypress.json
+          spec: "tests/e2e/**/*"
+        env:
+          CI: true
+          CYPRESS_baseUrl: http://localhost:8080/

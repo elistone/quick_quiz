@@ -1,0 +1,100 @@
+{
+  "music": [
+    {
+      "id": "0",
+      "title": "Test",
+      "file": "test_music.mp3",
+      "type": [
+        "Test"
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Lion King - I'm Surrounded by idiots!",
+      "file": "lion_king_idiots.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Herculues - Zero to Hero",
+      "file": "herculues_zero.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Emperors new groove - Hahaha i win!",
+      "file": "emperors_new_groove_haha.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Lion King - Curtsy",
+      "file": "lion_king_curtsy.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Mulan - Dishonour",
+      "file": "mushu_cow.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Impractical Jokers - Grandma",
+      "file": "impractical_jokers_grandma.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Superbad - She wants me",
+      "file": "superbad_she_wants_me.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Monty Python - Hamster",
+      "file": "monty_python_hamster.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Austin Powers - Titties ",
+      "file": "austin_powers_titties.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Airplane - Shirley ",
+      "file": "airplane_shirley.mp3",
+      "type": [
+        "Film"
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Toy Story - Intelligent life ",
+      "file": "toy_story_intelligent_life.mp3",
+      "type": [
+        "Film"
+      ]
+    }
+  ]
+}

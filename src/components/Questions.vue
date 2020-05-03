@@ -1,0 +1,82 @@
+<template>
+  <div class="questions">
+    <timer/>
+    <div class="question-wrapper" v-if="questionSelectedType !== questionType.NONE">
+      <question-letters
+        @answer="submitAnswer"
+        :locked="isLocked"
+        :setAnswer="answer"
+        v-if="questionSelectedType === questionType.LETTERS"
+      />
+      <question-numbers
+        @answer="submitAnswer"
+        :locked="isLocked"
+        :setAnswer="answer"
+        v-if="questionSelectedType === questionType.NUMBERS"
+      />
+      <question-multiple
+        @answer="submitAnswer"
+        :locked="isLocked"
+        :setAnswer="answer"
+        v-if="questionSelectedType === questionType.MULTIPLE"
+      />
+      <question-buzzer
+        @answer="submitAnswer"
+        :locked="isLocked"
+        v-if="questionSelectedType === questionType.BUZZER"
+      />
+    </div>
+  </div>
+</template>
+
+<script>
+import Timer from '@/components/Timer.vue';
+import QuestionLetters from '@/components/questions/QuestionLetters.vue';
+import QuestionNumbers from '@/components/questions/QuestionNumbers.vue';
+import QuestionMultiple from '@/components/questions/QuestionMultiple.vue';
+import QuestionBuzzer from './questions/QuestionBuzzer.vue';
+
+export default {
+  name: 'Questions',
+  components: {
+    Timer,
+    QuestionBuzzer,
+    QuestionMultiple,
+    QuestionNumbers,
+    QuestionLetters,
+  },
+  computed: {
+    questionSelectedType() {
+      return this.$store.state.player.question.type;
+    },
+    questionType() {
+      return this.$store.state.constants.questionType;
+    },
+    isLocked() {
+      return this.$store.state.player.locked;
+    },
+    answer: {
+      set(answer) {
+        this.$store.dispatch('playerAnswer', answer);
+      },
+      get() {
+        return this.$store.state.player.answer;
+      },
+    },
+  },
+  methods: {
+    submitAnswer(val) {
+      console.log('submit answer');
+      this.answer = val;
+    },
+  },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+  .question-wrapper{
+    max-width: 768px;
+    margin: 0 auto;
+  }
+</style>
