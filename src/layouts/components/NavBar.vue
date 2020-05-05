@@ -1,6 +1,6 @@
 <template>
   <b-navbar style="width: 100%;" toggleable type="dark" variant="dark">
-    <b-navbar-brand href="#">Quick Quiz</b-navbar-brand>
+    <b-navbar-brand :to="{ name: 'Home' }">Quick Quiz</b-navbar-brand>
 
     <b-navbar-toggle target="navbar-toggle-collapse">
       <template v-slot:default="{ expanded }">
@@ -11,6 +11,7 @@
 
     <b-collapse id="navbar-toggle-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
+        <b-nav-item :to="{ name: 'Host'}">Host a game?</b-nav-item>
         <b-nav-item href="#" @click="toggleDarkMode">{{darkModeText}}</b-nav-item>
         <b-nav-item><small>Version: v{{version}}</small></b-nav-item>
       </b-navbar-nav>

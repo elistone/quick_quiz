@@ -61,6 +61,24 @@ const routes = [
       ],
     },
   },
+  {
+    path: '/host',
+    name: 'Host',
+    component: () => import(/* webpackChunkName: "play" */ '../views/Host.vue'),
+    meta: {
+      title: 'Host a game?',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Host your own quiz!',
+        },
+        {
+          property: 'og:description',
+          content: 'Host your own quiz!',
+        },
+      ],
+    },
+  },
 ];
 
 const router = new VueRouter({

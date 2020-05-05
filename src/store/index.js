@@ -28,7 +28,7 @@ export default new Vuex.Store({
       locked: false,
       answer: [],
       question: {
-        type: c.questionType.BUZZER,
+        type: c.questionType.NONE,
         text: '',
       },
     },
