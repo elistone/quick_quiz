@@ -11,7 +11,7 @@
       </p>
 
       <div class="mt-2 d-flex justify-content-between align-items-center" style="min-width: 100px">
-        <b-badge class="status-icon ml-3" variant="primary" pill>
+        <b-badge class="status-icon ml-md-3" variant="primary" pill>
           <b-icon v-if="!isLoading" :icon="badgeIcon"></b-icon>
           <b-spinner
             v-if="isLoading"
@@ -140,7 +140,7 @@ export default {
 
   .song-progress {
     margin: 5px -20px -12px;
-    height: 4px;
+    height: 4px !important;
     border-radius: 0 !important;
   }
 

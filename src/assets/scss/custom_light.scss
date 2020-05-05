@@ -116,17 +116,11 @@ $close-text-shadow: none !default;
 .layout-mode-light {
   @import '~bootstrap/scss/bootstrap.scss';
   @import '~bootstrap-vue/src/index.scss';
-
 }
 
 body.layout-mode-light {
   background-color: $body-bg;
   color: $body-color;
-
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: left;
 }
+
+@import 'custom.scss';

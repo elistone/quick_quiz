@@ -1,6 +1,4 @@
 // include custom styles
-import './assets/scss/custom.scss';
-
 import Toasted from 'vue-toasted';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import Vue from 'vue';
