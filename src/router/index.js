@@ -12,15 +12,15 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: DEFAULT_TITLE,
+      title: '',
       metaTags: [
         {
           name: 'description',
-          content: 'The fastest way to play a quiz around around the world.',
+          content: 'The fastest way to play a quiz all around the world.',
         },
         {
           property: 'og:description',
-          content: 'The fastest way to play a quiz around around the world.',
+          content: 'The fastest way to play a quiz all around the world.',
         },
       ],
     },
@@ -99,6 +99,7 @@ router.beforeEach((to, from, next) => {
   const nearestWithMeta = to.matched.slice().reverse().find((r) => r.meta && r.meta.metaTags);
 
   // If a route with a title was found, set the document (page) title to that value.
+  document.title = `${DEFAULT_TITLE}`;
   if (nearestWithTitle) document.title = `${DEFAULT_TITLE} - ${nearestWithTitle.meta.title}`;
 
   // Remove any stale meta tags from the document using the key attribute we set below.

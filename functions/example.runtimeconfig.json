@@ -1,0 +1,8 @@
+{
+  "pusher": {
+    "appid": "THE APP ID",
+    "key": "THE KEY",
+    "cluster": "THE CLUSTER",
+    "secret": "THE SECRET"
+  }
+}
