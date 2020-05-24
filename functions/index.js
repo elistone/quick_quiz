@@ -36,24 +36,16 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello world');
-});
-
 // Index API route for the Express app
 app.get('/pusher/welcome', (req, res) => {
   res.send('Welcome');
-});
-
-// Index API route for the Express app
-app.get('/pusher/hello', (req, res) => {
-  res.send('hello');
 });
 
 // API route used by Pusher as a way of authenticating users
 app.post('/pusher/auth', (req, res) => {
   const socketId = req.body.socket_id;
   const channel = req.body.channel_name;
+  const buzzer = req.body.buzzer_id;
   const name = req.body.team_name;
   const host = req.body.is_host;
   const userId = req.body.user_id;
@@ -62,8 +54,9 @@ app.post('/pusher/auth', (req, res) => {
   const presenceData = {
     user_id: userId,
     user_info: {
-      host,
+      is_host: host,
       team_name: name,
+      buzzer_id: buzzer,
     },
   };
   const auth = pusher.authenticate(socketId, channel, presenceData);

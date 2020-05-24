@@ -28,4 +28,5 @@ yarn-error.log*
 # folders
 /public/audio/buzzers/*
 !/public/audio/buzzers/.gitkeep
-/.firebaserc
+.firebaserc
+.firebase/
