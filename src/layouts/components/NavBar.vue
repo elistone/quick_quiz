@@ -1,6 +1,6 @@
 <template>
   <b-navbar style="width: 100%;" toggleable type="dark" variant="dark">
-    <b-navbar-brand :to="{ name: 'Home' }">Quick Quiz</b-navbar-brand>
+    <b-navbar-brand :to="{ name: 'Home' }">Quiz Now</b-navbar-brand>
 
     <b-navbar-toggle target="navbar-toggle-collapse">
       <template v-slot:default="{ expanded }">

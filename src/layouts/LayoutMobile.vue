@@ -1,7 +1,7 @@
 <template>
   <div id="full-page-wrapper" class="container-fluid">
     <div class="row mb-5">
-      <nav-bar/>
+      <nav-bar v-if="!hideNav"/>
     </div>
     <b-container style="margin-bottom: 8rem;">
       <div class="row">
@@ -21,7 +21,12 @@ import Footer from './components/Footer.vue';
 export default {
   name: 'LayoutMobile',
   components: { NavBar, Footer },
-  props: {},
+  props: {
+    hideNav: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {};
   },

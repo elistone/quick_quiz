@@ -26,6 +26,24 @@ const routes = [
     },
   },
   {
+    path: '/join',
+    name: 'Join',
+    component: () => import(/* webpackChunkName: "buzzer" */ '../views/Join.vue'),
+    meta: {
+      title: '',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'The fastest way to play a quiz all around the world.',
+        },
+        {
+          property: 'og:description',
+          content: 'The fastest way to play a quiz all around the world.',
+        },
+      ],
+    },
+  },
+  {
     path: '/buzzer',
     name: 'Buzzer',
     component: () => import(/* webpackChunkName: "buzzer" */ '../views/Buzzer.vue'),

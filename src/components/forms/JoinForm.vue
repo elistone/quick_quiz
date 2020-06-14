@@ -1,5 +1,8 @@
 <template>
   <div class="mt-n4">
+    <div class="clearfix mb-2">
+      <b-button variant="primary" :to="{ name: 'Home' }">Back</b-button>
+    </div>
     <b-form @submit="onSubmit">
       <b-form-group
         id="input-game-id"
@@ -66,7 +69,8 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      alert(JSON.stringify(this.form));
+      this.$router.push({ name: 'Play' });
+      // alert(JSON.stringify(this.form));
     },
   },
   directives: {

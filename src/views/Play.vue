@@ -1,5 +1,5 @@
 <template>
-    <layout-mobile class="player">
+    <layout-mobile :hideNav="true" class="play">
       <questions/>
     </layout-mobile>
 </template>
