@@ -1,7 +1,7 @@
 <template>
     <layout-mobile :hideNav="true" :autoplay="true" :centerMode="true" class="play">
-      <how-to-play/>
-      <questions v-if="false"/>
+      <how-to-play v-if="!gameTime"/>
+      <questions v-if="gameTime"/>
     </layout-mobile>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     HowToPlay,
     LayoutMobile,
     Questions,
+  },
+  data() {
+    return {
+      gameTime: true,
+    };
   },
   mounted() {},
 };

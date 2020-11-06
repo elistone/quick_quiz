@@ -1,6 +1,6 @@
 <template>
   <div id="full-page-wrapper" class="container-fluid">
-    <div class="row mb-5">
+    <div class="row" :class="[ !hideNav ? 'mb-5' : 'mb-3' ]">
       <nav-bar v-if="!hideNav"/>
     </div>
     <b-container style="margin-bottom: 8rem;">

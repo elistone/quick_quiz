@@ -69,8 +69,7 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      this.$router.push({ name: 'Play' });
-      // alert(JSON.stringify(this.form));
+      this.$router.push({ name: 'Buzzer' });
     },
   },
   directives: {

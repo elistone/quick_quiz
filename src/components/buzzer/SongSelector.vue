@@ -1,22 +1,30 @@
 <template>
-  <b-list-group>
-    <pre>{{ sortedMusic }}</pre>
-    <song-item
-      v-for="m in music.music"
-      :id="m.id"
-      :file="m.file"
-      :key="m.id"
-      :is-playing="playing === m.id"
-      :is-selected="selected === m.id"
-      :is-loading="playing === m.id && loading"
-      :is-disabled="isAlreadyPicked(m.id)"
-      :seek="timer.seek"
-      :duration="timer.duration"
-      @play="playSong"
-      @stop="stopSong"
-      @selected="selectedSong">{{ m.title }}
-    </song-item>
-  </b-list-group>
+  <div>
+    <h2>Select your buzzer sound!</h2>
+    <div class="clearfix mb-2">
+      <b-button variant="primary"
+                class="float-right"
+                :to="{ name: 'Play' }"
+                :disabled="!selected">Next</b-button>
+    </div>
+    <b-list-group>
+      <song-item
+        v-for="m in sortedMusic"
+        :id="m.id"
+        :file="m.file"
+        :key="m.id"
+        :is-playing="playing === m.id"
+        :is-selected="selected === m.id"
+        :is-loading="playing === m.id && loading"
+        :is-disabled="isAlreadyPicked(m.id)"
+        :seek="timer.seek"
+        :duration="timer.duration"
+        @play="playSong"
+        @stop="stopSong"
+        @selected="selectedSong">{{ m.title }}
+      </song-item>
+    </b-list-group>
+  </div>
 </template>
 
 <script>
@@ -52,7 +60,7 @@ export default {
         if (p1.title > p2.title) return 1 * modifier;
         return 0;
       });
-      return { music: sorted };
+      return sorted;
     },
   },
   methods: {
@@ -126,6 +134,10 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
+<style scoped lang="scss">
+.list-group {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 20px;
+}
 </style>

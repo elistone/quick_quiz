@@ -1,15 +1,15 @@
 <template>
   <div>
     <h2 class="text-center">How to play</h2>
-    <VueSlickCarousel :arrows="true">
+    <VueSlickCarousel :arrows="false" :autoplay="true" :autoplaySpeed="5000">
       <div class="slide-data">
         <h3>Title</h3>
-        <img src="https://via.placeholder.com/200" />
+        <div class="slide-data-image" :style="{'background-image':'url(https://via.placeholder.com/600)'}"></div>
         <p>Image</p>
       </div>
       <div class="slide-data">
         <h3>Title</h3>
-        <img src="https://via.placeholder.com/200" />
+        <div class="slide-data-image" :style="{'background-image':'url(https://via.placeholder.com/600)'}"></div>
         <p>Image</p>
       </div>
     </VueSlickCarousel>
@@ -42,10 +42,12 @@ export default {
   h3 {
 
   }
-  img {
-    margin: 0 auto;
-    margin-top: 1.5rem;
-    min-height: 200px;
+  .slide-data-image {
+    margin: 1.5rem auto 0;
+    padding-top: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
   p {
     margin-top: 1.5rem;

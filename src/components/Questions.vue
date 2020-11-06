@@ -1,6 +1,6 @@
 <template>
   <div class="questions">
-    <timer/>
+    <timer v-if="questionSelectedType !== questionType.NONE" />
     <div class="question-wrapper" v-if="questionSelectedType !== questionType.NONE">
       <question-letters
         @answer="submitAnswer"
@@ -25,6 +25,11 @@
         :locked="isLocked"
         v-if="questionSelectedType === questionType.BUZZER"
       />
+    </div>
+    <div class="center">
+      <b-alert :show="questionSelectedType === questionType.NONE">
+        Waiting for question
+      </b-alert>
     </div>
   </div>
 </template>
@@ -78,5 +83,19 @@ export default {
   .question-wrapper{
     max-width: 768px;
     margin: 0 auto;
+  }
+
+  .center {
+    position: relative;
+    height: 250px;
+    .alert {
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
   }
 </style>

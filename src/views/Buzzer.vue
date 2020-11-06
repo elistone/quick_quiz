@@ -1,5 +1,5 @@
 <template>
-  <layout-mobile class="buzzer mt-n1">
+  <layout-mobile :hideNav="true" class="buzzer">
     <song-selector />
   </layout-mobile>
 </template>
