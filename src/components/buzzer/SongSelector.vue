@@ -1,5 +1,6 @@
 <template>
   <b-list-group>
+    <pre>{{ sortedMusic }}</pre>
     <song-item
       v-for="m in music.music"
       :id="m.id"
@@ -13,7 +14,7 @@
       :duration="timer.duration"
       @play="playSong"
       @stop="stopSong"
-      @selected="selectedSong">{{m.title}}
+      @selected="selectedSong">{{ m.title }}
     </song-item>
   </b-list-group>
 </template>
@@ -41,7 +42,19 @@ export default {
       },
     };
   },
-  computed: {},
+  computed: {
+    sortedMusic() {
+      const { music } = this.music;
+      const sorted = music.sort((p1, p2) => {
+        const modifier = 1;
+        // if (this.sortDirection === 'desc') modifier = -1;
+        if (p1.title < p2.title) return -1 * modifier;
+        if (p1.title > p2.title) return 1 * modifier;
+        return 0;
+      });
+      return { music: sorted };
+    },
+  },
   methods: {
     playSong(file, id) {
       this.stopSong();
