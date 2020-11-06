@@ -35,7 +35,7 @@
             placeholder="Enter your team name"
             :maxlength="name.maxlength"
             autocomplete="off"
-            pattern='^[a-zA-Z\s]+$'
+            pattern='^[a-zA-Z0-9\s]+$'
           />
         </b-input-group>
       </b-form-group>

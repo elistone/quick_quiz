@@ -4,7 +4,7 @@ import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
-const DEFAULT_TITLE = 'Quick Quiz';
+const DEFAULT_TITLE = 'Quick Now';
 
 const routes = [
   {

@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     submitAnswer(val) {
-      console.log('submit answer');
+      // console.log('submit answer');
       this.answer = val;
     },
   },
