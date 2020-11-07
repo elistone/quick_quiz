@@ -1,12 +1,13 @@
 // include custom styles
 import Toasted from 'vue-toasted';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import browserDetect from 'vue-browser-detect-plugin';
 import Vue from 'vue';
+import PreventDoubleTap from './plugins/preventDoubleTap';
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
 import store from './store';
-import PreventDoubleTap from './plugins/preventDoubleTap';
 
 Vue.config.productionTip = false;
 
@@ -16,6 +17,8 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 // prevent double tap & pinch zoom from being used
 Vue.use(PreventDoubleTap);
+// enable browser dection
+Vue.use(browserDetect);
 // enable toasted
 Vue.use(Toasted, { position: 'top-center', duration: 3500 });
 

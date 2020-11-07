@@ -40,7 +40,7 @@ import Timer from '@/components/Timer.vue';
 import QuestionLetters from '@/components/questions/QuestionLetters.vue';
 import QuestionNumbers from '@/components/questions/QuestionNumbers.vue';
 import QuestionMultiple from '@/components/questions/QuestionMultiple.vue';
-import Spinner from '@/components/spinner/Spinner.vue';
+import Spinner from '@/components/animated/Spinner.vue';
 import QuestionBuzzer from './questions/QuestionBuzzer.vue';
 
 export default {

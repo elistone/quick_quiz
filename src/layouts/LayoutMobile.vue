@@ -1,26 +1,13 @@
 <template>
-  <div id="full-page-wrapper" class="container-fluid">
-    <div class="row" :class="[ !hideNav ? 'mb-5' : 'mb-3' ]">
-      <nav-bar v-if="!hideNav"/>
-    </div>
-    <b-container style="margin-bottom: 8rem;">
-      <div class="row">
-        <div class="col-sm-12 bg-faded">
-          <slot/>
-        </div>
-      </div>
-    </b-container>
-    <Footer/>
+  <div class="mobile-layout">
+    <main class="mobile-layout-main"><slot/></main>
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
-import Footer from './components/Footer.vue';
-
 export default {
   name: 'LayoutMobile',
-  components: { NavBar, Footer },
+  components: {},
   props: {
     hideNav: {
       type: Boolean,
@@ -37,7 +24,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  .flex-fill {
-    flex: 1 1 auto;
+.mobile-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  > * {
+    padding: 10px;
   }
+
+  .mobile-layout-main {
+    flex-grow: 1;
+    display: flex;
+  }
+}
+.ios-yes{
+  .mobile-layout {
+    min-height: 85vh;
+  }
+}
 </style>

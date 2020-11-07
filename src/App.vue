@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="[browserClass,isIosClass]">
     <layout-mode>
       <router-view/>
     </layout-mode>
@@ -17,7 +17,15 @@ export default {
       isDark: false,
     };
   },
-  computed: {},
+  computed: {
+    browserClass() {
+      return `browser-${this.$browserDetect.meta.name.toLowerCase()}`;
+    },
+    isIosClass() {
+      const isIos = this.$browserDetect.isIOS;
+      return `ios-${isIos ? 'yes' : 'no'}`;
+    },
+  },
   methods: {},
 };
 </script>
