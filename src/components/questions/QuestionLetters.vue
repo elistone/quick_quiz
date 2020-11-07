@@ -57,38 +57,38 @@ export default {
 <style scoped lang="scss">
   .btn-letter {
     margin-bottom: 10px;
-    height: 52px;
-    width: 52px;
-    font-size: 20px;
+    height: 52px !important;
+    width: 52px !important;
+    font-size: 20px !important;
     display: inline-block;
   }
 
   @media only screen and (min-width: 375px) {
     .btn-letter {
-      height: 66px;
-      width: 66px;
-      font-size: 25px;
+      height: 65px !important;
+      width: 65px !important;
+      font-size: 25px !important;
     }
   }
 
   @media only screen and (min-width: 425px) {
     .btn-letter {
-      height: 78px;
-      width: 78px;
-      font-size: 30px;
+      height: 78px !important;
+      width: 78px !important;
+      font-size: 30px !important;
     }
   }
 
   @media only screen and (min-width: 768px) {
     .btn-letter {
-      height: 120px;
-      width: 120px;
-      font-size: 50px;
+      height: 120px !important;
+      width: 120px !important;
+      font-size: 50px !important;
     }
   }
 
   .col {
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
   }
 </style>

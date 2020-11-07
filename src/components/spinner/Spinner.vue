@@ -27,14 +27,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 $colors:
-  #2196F3,
-  #03A9F4,
-  #00BCD4,
-  #009688,
-  #4CAF50,
-  #8BC34A,
-  #CDDC39,
-  #FFEB3B;
+  #FFFFFF,
+  #FFFFFF,
+  #FFFFFF,
+  #FFFFFF,
+  #FFFFFF,
+  #FFFFFF,
+  #FFFFFF,
+  #FFFFFF;
 
 .spinner {
   position: relative;
