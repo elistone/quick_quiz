@@ -45,6 +45,7 @@ $time-step: $time/$max;
   font: 6.5em/1 Open Sans, Impact;
   text-transform: uppercase;
   margin: 0;
+  margin-top: -2rem;
 }
 
 .text {

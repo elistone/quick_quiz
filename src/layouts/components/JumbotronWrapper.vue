@@ -1,20 +1,19 @@
 <template>
-  <div :class="['mobile-layout',useFlexboxClass]">
-    <main class="mobile-layout-main">
+  <div :class="['jumbotron', 'jumbotron-wrapper',useFlexboxClass]">
+    <main>
       <slot/>
     </main>
+    <footer>
+      <slot name="footer"/>
+    </footer>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'LayoutMobile',
+  name: 'JumbotronWrapper',
   components: {},
   props: {
-    hideNav: {
-      type: Boolean,
-      default: false,
-    },
     useFlexbox: {
       type: Boolean,
       default: true,
@@ -34,28 +33,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.mobile-layout {
-  min-height: 100vh;
+.jumbotron-wrapper {
 
-  > * {
-    padding: 10px;
+  &.jumbotron {
+    margin-bottom: 0;
   }
-}
 
-.ios-yes {
-  .mobile-layout {
-    min-height: 85vh;
+  > main {
+    margin-top: 2rem;
+    flex: 999;
   }
+
 }
 
 .use-flexbox {
-  &.mobile-layout {
+  &.jumbotron-wrapper {
+    flex: 1;
     display: flex;
     flex-direction: column;
 
-    .mobile-layout-main {
-      flex-grow: 1;
-      display: flex;
+    > footer {
+      flex: 1;
     }
   }
 }

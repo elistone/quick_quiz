@@ -118,10 +118,18 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .song-item.disabled .status-icon {
-    opacity: 0.65;
+<style scoped lang="scss">
+  .song-item{
+    border-radius: 0 !important;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    &.disabled .status-icon {
+       opacity: 0.65;
+     }
   }
+
+  .song-item
 
   .status-icon {
     height: 30px;

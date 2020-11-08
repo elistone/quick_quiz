@@ -1,12 +1,17 @@
 <template>
   <div>
-    <h2>Select your buzzer sound!</h2>
-    <div class="clearfix mb-2">
-      <b-button variant="primary"
-                class="float-right"
-                :to="{ name: 'Play' }"
-                :disabled="!selected">Next</b-button>
-    </div>
+    <b-row class="buttons mb-3">
+      <b-col>
+      </b-col>
+      <b-col>
+        <b-button variant="primary"
+                  class="float-right btn-block"
+                  :to="{ name: 'Play' }"
+                  :disabled="!selected">Next
+        </b-button>
+      </b-col>
+    </b-row>
+    <p class="lead text-center">Select your buzzer sound!</p>
     <b-list-group>
       <song-item
         v-for="m in sortedMusic"

@@ -1,8 +1,5 @@
 <template>
   <div class="mt-n4">
-    <div class="clearfix mb-2">
-      <b-button variant="primary" :to="{ name: 'Home' }">Back</b-button>
-    </div>
     <b-form @submit="onSubmit">
       <b-form-group
         id="input-game-id"
@@ -87,5 +84,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+.btn-block {
+  flex: 1;
+}
 </style>
