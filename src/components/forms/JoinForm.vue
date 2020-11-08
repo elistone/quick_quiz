@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-n4">
+  <div>
     <b-form @submit="onSubmit">
       <b-form-group
         id="input-game-id"

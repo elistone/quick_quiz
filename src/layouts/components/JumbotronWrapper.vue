@@ -40,7 +40,6 @@ export default {
   }
 
   > main {
-    margin-top: 2rem;
     flex: 999;
   }
 

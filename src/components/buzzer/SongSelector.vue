@@ -11,7 +11,6 @@
         </b-button>
       </b-col>
     </b-row>
-    <p class="lead text-center">Select your buzzer sound!</p>
     <b-list-group>
       <song-item
         v-for="m in sortedMusic"
@@ -29,6 +28,17 @@
         @selected="selectedSong">{{ m.title }}
       </song-item>
     </b-list-group>
+    <b-row class="buttons mt-3">
+      <b-col>
+      </b-col>
+      <b-col>
+        <b-button variant="primary"
+                  class="float-right btn-block"
+                  :to="{ name: 'Play' }"
+                  :disabled="!selected">Next
+        </b-button>
+      </b-col>
+    </b-row>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <layout-mobile :hideNav="true" class="buzzer">
     <JumbotronWrapper>
+      <h2>Buzzer sound</h2>
       <song-selector />
     </JumbotronWrapper>
   </layout-mobile>

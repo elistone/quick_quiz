@@ -8,16 +8,16 @@
         <b-row class="buttons">
           <b-col>
             <b-button
-              variant="primary"
+              variant="success"
               class="btn-block"
-              :to="{ name: 'Join' }">Join Quiz
+              :to="{ name: 'Host' }">Host Quiz
             </b-button>
           </b-col>
           <b-col>
             <b-button
-              variant="success"
+              variant="primary"
               class="btn-block"
-              :to="{ name: 'Host' }">Host Quiz
+              :to="{ name: 'Join' }">Join Quiz
             </b-button>
           </b-col>
         </b-row>

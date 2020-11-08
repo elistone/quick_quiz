@@ -1,10 +1,11 @@
 <template>
-    <layout-mobile :hideNav="true" class="play" :use-flexbox="gameTime">
-      <JumbotronWrapper :use-flexbox="gameTime">
-        <questions v-if="gameTime"/>
-        <how-to-play v-if="!gameTime"/>
-      </JumbotronWrapper>
-    </layout-mobile>
+  <layout-mobile :hideNav="true" class="play" :use-flexbox="useFlexbox">
+    <JumbotronWrapper :use-flexbox="useFlexbox">
+      <questions v-if="currentGameState === gameStates.SHOW_QUESTION"/>
+      <how-to-play v-if="currentGameState === gameStates.HOW_TO_PLAY"/>
+      <scoreboard v-if="currentGameState === gameStates.SCOREBOARD"/>
+    </JumbotronWrapper>
+  </layout-mobile>
 </template>
 
 <script>
@@ -12,21 +13,36 @@ import Questions from '@/components/Questions.vue';
 import LayoutMobile from '@/layouts/LayoutMobile.vue';
 import HowToPlay from '@/components/HowToPlay.vue';
 import JumbotronWrapper from '@/layouts/components/JumbotronWrapper.vue';
+import Scoreboard from '@/components/Scoreboard.vue';
 
 export default {
   name: 'Home',
   components: {
+    Scoreboard,
     JumbotronWrapper,
     HowToPlay,
     LayoutMobile,
     Questions,
   },
   data() {
-    return {
-      gameTime: false,
-    };
+    return {};
   },
-  mounted() {},
+  computed: {
+    gameStates() {
+      return this.$store.state.constants.states;
+    },
+    currentGameState() {
+      return this.$store.state.player.state;
+    },
+    useFlexbox() {
+      if (this.currentGameState === this.gameStates.HOW_TO_PLAY) {
+        return false;
+      }
+      return true;
+    },
+  },
+  mounted() {
+  },
 };
 </script>
 

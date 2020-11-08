@@ -1,6 +1,7 @@
 <template>
   <layout-mobile class="join">
     <JumbotronWrapper>
+      <h2>Join a game</h2>
       <join-form />
 
       <template v-slot:footer>

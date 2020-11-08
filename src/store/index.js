@@ -20,7 +20,6 @@ export default new Vuex.Store({
       },
       evilMode: {
         enabled: false,
-        number: -10,
       },
     },
     player: {
@@ -31,14 +30,7 @@ export default new Vuex.Store({
         type: c.questionType.NONE,
         text: '',
       },
-    },
-    host: {
-      questions: [],
-      question: {
-        type: c.questionType.NONE,
-        answer: '',
-        text: '',
-      },
+      state: c.states.SCOREBOARD,
     },
   },
   mutations: {
