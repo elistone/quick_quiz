@@ -14,6 +14,7 @@ export default {
   components: {},
   data() {
     return {
+      loaded: false,
       userId: 2,
       fields: ['pos', 'team_name', 'score'],
       items: [
@@ -44,8 +45,14 @@ export default {
       ],
     };
   },
+  mounted() {
+    setTimeout(() => {
+      this.loaded = true;
+    }, 500);
+  },
   computed: {
     scoreboardSorted() {
+      let classLoop = 0;
       let loop = 0;
       let pos = 0;
       const that = this;
@@ -77,11 +84,18 @@ export default {
         return 0;
       });
 
+      classLoop = teams.length;
       let incrementValue = 1;
       teams.forEach((team) => {
         const lastId = loop - 1;
         if (team.id === that.userId) {
           team._rowVariant = 'is-current-user';
+        } else {
+          team._rowVariant = 'not-active-user';
+        }
+        team._rowVariant += ` score-row-${classLoop}`;
+        if (this.loaded) {
+          team._rowVariant += ' load-animation';
         }
         if (lastId >= 0 && teams[lastId].score === team.score) {
           // don't increment
@@ -93,6 +107,7 @@ export default {
         // eslint-disable-next-line no-param-reassign
         team.pos = ordinalSuffixOf(pos);
         loop += 1;
+        classLoop -= 1;
       });
       return teams;
     },
@@ -104,10 +119,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 $num: 50; // this is how many table columns we have
+$total: $num;
 $base-color: #C3FF68;
 
 @while $num > 0 {
   $angle: $num*2000/100;
+  $delay: abs($num * 0.75);
   $this-color: adjust-hue($base-color, $angle);
 
   .table tbody tr:nth-of-type(#{$num}) {
@@ -115,6 +132,10 @@ $base-color: #C3FF68;
     border: 1px solid darken($this-color, 10);
     color: darken($this-color, 50);
   }
+
+  //.table tbody tr.score-row-#{$num} td {
+  //  transition-delay: #{$delay}s;
+  //}
 
   .table tbody tr.table-is-current-user {
     background: linear-gradient(270deg, #FFFFFF, lighten($this-color, 10));
@@ -124,11 +145,35 @@ $base-color: #C3FF68;
   $num: $num - 1;
 }
 
-.table tbody tr.table-is-current-user {
-  border-color: white;
-  -webkit-animation: AnimationName 1s ease infinite;
-  -moz-animation: AnimationName 1s ease infinite;
-  animation: AnimationName 1s ease infinite;
+
+.table tbody {
+  tr {
+    //td {
+    //  transition-duration: 1.5s;
+    //  transition-property: all;
+    //  transition-timing-function: ease-out;
+    //  opacity: 0;
+    //  max-height: 0;
+    //  overflow: hidden;
+    //  border-collapse: collapse;
+    //  padding: 0;
+    //}
+    //
+    //&.load-animation {
+    //  td {
+    //    opacity: 1;
+    //    max-height: 1000px;
+    //    padding: 12px;
+    //  }
+    //}
+
+    &.table-is-current-user {
+      border-color: white;
+      -webkit-animation: AnimationName 1s ease infinite;
+      -moz-animation: AnimationName 1s ease infinite;
+      animation: AnimationName 1s ease infinite;
+    }
+  }
 }
 
 @-webkit-keyframes AnimationName {
