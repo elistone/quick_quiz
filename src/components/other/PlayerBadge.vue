@@ -1,5 +1,8 @@
 <template>
-  <div class="player-badge center large" :style="{backgroundColor: backgroundColour}">
+  <div :class="[
+    'player-badge',
+    size === 'large' ? 'large' : 'small',
+    center ? 'center' : '']" :style="{backgroundColor: backgroundColour}">
     <span>{{ playerName }}</span>
   </div>
 </template>
@@ -12,6 +15,14 @@ export default {
     name: {
       type: String,
       default: '?',
+    },
+    size: {
+      type: String,
+      default: 'large',
+    },
+    center: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
@@ -66,6 +77,7 @@ export default {
   align-items: center;
   font-weight: bold;
   transition: background-color 1000ms linear;
+  color: white;
 
   &.center {
     margin: 0 auto;
@@ -76,6 +88,13 @@ export default {
     width: 7rem;
     height: 7rem;
     font-size: 2.5rem;
+  }
+
+  &.small {
+    border-width: 0.15rem;
+    width: 2.15rem;
+    height: 2.15rem;
+    font-size: 0.75rem;
   }
 }
 </style>

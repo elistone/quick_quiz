@@ -1,25 +1,33 @@
 <template>
   <div class="scoreboard">
     <h2>Scoreboard</h2>
-    <b-table borderless :items="scoreboardSorted" :fields="fields"/>
+    <b-table borderless :items="scoreboardSorted" :fields="fields">
+      <template #cell(player_badge)="row" class="player-badge-row">
+        <PlayerBadge :name="row.item.team_name" size="small"/>
+      </template>
+    </b-table>
   </div>
 </template>
 
 <script>
 
+import PlayerBadge from '@/components/other/PlayerBadge.vue';
+
 export default {
   /* eslint no-underscore-dangle: 0 */
   /* eslint no-param-reassign: "error" */
   name: 'scoreboard',
-  components: {},
+  components: { PlayerBadge },
   data() {
     return {
       loaded: false,
       userId: 2,
-      fields: ['pos', 'team_name', 'score'],
+      fields: [{ key: 'player_badge', label: '' }, 'pos', 'team_name', 'score'],
       items: [
-        { id: 1, team_name: 'Dickerson', score: 91 },
-        { id: 2, team_name: 'Larsen', score: 81 },
+        {
+          id: 1, team_name: '1234567890123456789012345', score: 91,
+        },
+        { id: 2, team_name: '1 2 3 4 5 6 7 8 9 0 1 2 3 4 5', score: 81 },
         { id: 3, team_name: 'Geneva', score: 71 },
         { id: 4, team_name: 'Jami', score: 61 },
         { id: 5, team_name: 'Dickerson', score: 21 },
@@ -166,6 +174,17 @@ $base-color: #C3FF68;
     //    padding: 12px;
     //  }
     //}
+
+    td {
+      max-width: 130px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &:first-child{
+        width: 2.15rem;
+      }
+    }
 
     &.table-is-current-user {
       border-color: white;
