@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="the-player-badge">
+      <PlayerBadge :name="form.name" />
+    </div>
     <b-form @submit="onSubmit">
       <b-form-group
         id="input-game-id"
@@ -43,9 +46,11 @@
 </template>
 
 <script>
+import PlayerBadge from '@/components/other/PlayerBadge.vue';
+
 export default {
   name: 'JoinForm',
-  components: {},
+  components: { PlayerBadge },
   props: {},
   data() {
     return {
@@ -86,5 +91,9 @@ export default {
 <style scoped lang="scss">
 .btn-block {
   flex: 1;
+}
+.the-player-badge {
+  text-align: center;
+  margin: 1rem auto;
 }
 </style>

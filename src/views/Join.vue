@@ -3,7 +3,6 @@
     <JumbotronWrapper>
       <h2>Join a game</h2>
       <join-form />
-
       <template v-slot:footer>
         <b-row class="buttons">
           <b-col>
