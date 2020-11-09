@@ -1,6 +1,6 @@
-# Quick Quiz
+# Quiz Now
 
-Quick Quiz is a VueJs version of www.speedquizzing.com - which allows hosting and running quiz's via a web browser.
+Quiz Now is a VueJs version of www.speedquizzing.com - which allows hosting and running quiz's via a web browser.
 
 ## Project setup
 

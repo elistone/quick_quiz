@@ -4,7 +4,7 @@ import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
-const DEFAULT_TITLE = 'Quick Now';
+const DEFAULT_TITLE = 'Quiz Now';
 
 const routes = [
   {
@@ -70,11 +70,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'You are now playing the quick quiz application.',
+          content: 'You are now playing the quiz now application.',
         },
         {
           property: 'og:description',
-          content: 'You are now playing the quick quiz application.',
+          content: 'You are now playing the quiz now application.',
         },
       ],
     },
