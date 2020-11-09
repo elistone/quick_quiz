@@ -25,6 +25,7 @@
         :locked="isLocked"
         v-if="questionSelectedType === questionType.BUZZER"
       />
+      <AudioImageLoader />
     </div>
     <div class="center" v-if="questionSelectedType === questionType.NONE">
       <b-alert :show="questionSelectedType === questionType.NONE">
@@ -41,11 +42,13 @@ import QuestionLetters from '@/components/questions/QuestionLetters.vue';
 import QuestionNumbers from '@/components/questions/QuestionNumbers.vue';
 import QuestionMultiple from '@/components/questions/QuestionMultiple.vue';
 import Spinner from '@/components/animated/Spinner.vue';
+import AudioImageLoader from '@/components/other/AudioImageLoader.vue';
 import QuestionBuzzer from './questions/QuestionBuzzer.vue';
 
 export default {
   name: 'Questions',
   components: {
+    AudioImageLoader,
     Spinner,
     Timer,
     QuestionBuzzer,

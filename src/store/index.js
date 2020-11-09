@@ -27,10 +27,10 @@ export default new Vuex.Store({
       locked: false,
       answer: [],
       question: {
-        type: c.questionType.NONE,
+        type: c.questionType.NUMBERS,
         text: '',
       },
-      state: c.states.SCOREBOARD,
+      state: c.states.SHOW_QUESTION,
     },
   },
   mutations: {

@@ -41,6 +41,7 @@ $colors:
   height: 60px;
   width: 60px;
   margin: 10px auto;
+  z-index: 10000;
 }
 
 [class^="ball-"] {
