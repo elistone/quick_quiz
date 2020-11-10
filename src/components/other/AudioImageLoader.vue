@@ -93,19 +93,25 @@ export default {
 }
 
 .image-container {
-  width: 500px;
   height: 300px;
   background-repeat: no-repeat;
   background-size: contain;
   margin: 10px;
+  position: absolute;
+  top: -100000000px;
+  width: 100px;
   opacity: 0;
-  display: none;
+  visibility: hidden;
+  transition: opacity 2s, visibility 2s;
 }
 
 .show-content {
   .image-container {
+    width: 500px;
+    position: static;
+    top: auto;
     opacity: 1;
-    display: block;
+    visibility: visible;
   }
 }
 </style>
