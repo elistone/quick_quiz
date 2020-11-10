@@ -1,18 +1,28 @@
 <template>
   <div class="audio-image-loader">
-    <div class="loaded-container"
-         :class="[loaded ? 'loaded' : 'loading', show ? 'show-content' : '']">
-      <div class="image-container"
-           :style="{ 'background-image':'url('+image+')'}"/>
-      <b-alert class="alert-message" :show="!show" :variant="alertStatus">
-        <span class="alert-title">Incoming {{ type }}!</span>
-        <span class="loading" v-if="!loaded">Loading...</span>
-        <span class="loaded" v-if="loaded">Loaded!</span>
-        <Spinner v-if="!loaded"/>
-        <Tick v-if="loaded"/>
-        <span class="wait-message" v-if="loaded">(waiting for everyone else)</span>
-      </b-alert>
+    <div class="overlay"
+         :class="[show && minimized ? 'minimized' : '']"
+         v-on:click="toggleMinimized()">
+      <div class="loaded-container"
+           :class="[
+             loaded ? 'loaded' : 'loading',
+              show ? 'show-content' : '']">
+        <div class="image-container"
+             :style="{ 'background-image':'url('+image+')'}"/>
+        <div class="tap-to-hide" v-if="show && loaded">Tap to hide</div>
+        <b-alert class="alert-message" :show="!show" :variant="alertStatus">
+          <span class="alert-title">Incoming {{ type }}!</span>
+          <span class="loading" v-if="!loaded">Loading...</span>
+          <span class="loaded" v-if="loaded">Loaded!</span>
+          <Spinner v-if="!loaded"/>
+          <Tick v-if="loaded"/>
+          <span class="wait-message" v-if="loaded">(waiting for everyone else)</span>
+        </b-alert>
+      </div>
     </div>
+    <div class="tap-to-show"
+         v-if="show && minimized"
+         v-on:click="toggleMinimized()">Tap to show</div>
   </div>
 </template>
 
@@ -29,6 +39,7 @@ export default {
       type: 'Image',
       loaded: false,
       show: false,
+      minimized: false,
       image: '',
       imageUrl: '',
     };
@@ -54,6 +65,11 @@ export default {
       };
       highResImage.src = this.imageUrl;
     },
+    toggleMinimized() {
+      if (this.show) {
+        this.minimized = !this.minimized;
+      }
+    },
   },
 };
 </script>
@@ -75,7 +91,7 @@ export default {
   }
 }
 
-.audio-image-loader {
+.overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -83,6 +99,13 @@ export default {
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
+  &.minimized{
+    background-color: transparent;
+    pointer-events: none;
+    .loaded-container {
+      display: none;
+    }
+  }
 }
 
 .loaded-container {
@@ -106,6 +129,23 @@ export default {
   transition: opacity 2s, visibility 2s;
 }
 
+.tap-to-hide {
+  position: absolute;
+  bottom: 20px;
+}
+
+.tap-to-show {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+  padding: 1rem;
+  pointer-events: auto;
+}
+
 .show-content {
   .image-container {
     width: 500px;
@@ -114,6 +154,7 @@ export default {
     opacity: 1;
     visibility: visible;
   }
+
   .alert-message {
     display: none;
   }

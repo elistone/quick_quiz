@@ -27,7 +27,7 @@ export default new Vuex.Store({
       locked: false,
       answer: [],
       question: {
-        type: c.questionType.NUMBERS,
+        type: c.questionType.LETTERS,
         text: '',
       },
       state: c.states.SHOW_QUESTION,
