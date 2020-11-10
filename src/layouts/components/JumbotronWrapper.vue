@@ -36,7 +36,8 @@ export default {
 .jumbotron-wrapper {
 
   &.jumbotron {
-    margin-bottom: 0;
+    max-width: 1024px;
+    margin: 0 auto;
   }
 
   > main {

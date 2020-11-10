@@ -62,6 +62,7 @@ export default {
 <style scoped lang="scss">
 .alert-message {
   width: 86%;
+  max-width: 500px;
   text-align: center;
 
   .alert-title {
@@ -98,7 +99,7 @@ export default {
   background-size: contain;
   margin: 10px;
   position: absolute;
-  top: -100000000px;
+  top: -9999px;
   width: 100px;
   opacity: 0;
   visibility: hidden;
@@ -112,6 +113,9 @@ export default {
     top: auto;
     opacity: 1;
     visibility: visible;
+  }
+  .alert-message {
+    display: none;
   }
 }
 </style>
