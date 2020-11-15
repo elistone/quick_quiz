@@ -29,8 +29,9 @@
     </div>
     <div class="center" v-if="questionSelectedType === questionType.NONE">
       <b-alert :show="questionSelectedType === questionType.NONE">
-        Waiting for question...
+        Ready
         <spinner />
+        Waiting for question...
       </b-alert>
     </div>
   </div>
