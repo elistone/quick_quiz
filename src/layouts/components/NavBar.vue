@@ -2,20 +2,20 @@
   <b-navbar style="width: 100%;" toggleable type="dark" variant="dark">
     <b-navbar-brand :to="{ name: 'Home' }">Quiz Now</b-navbar-brand>
 
-    <b-navbar-toggle target="navbar-toggle-collapse">
-      <template v-slot:default="{ expanded }">
-        <b-icon v-if="expanded" icon="x"></b-icon>
-        <b-icon v-else icon="list"></b-icon>
-      </template>
-    </b-navbar-toggle>
+<!--    <b-navbar-toggle target="navbar-toggle-collapse">-->
+<!--      <template v-slot:default="{ expanded }">-->
+<!--        <b-icon v-if="expanded" icon="x"></b-icon>-->
+<!--        <b-icon v-else icon="list"></b-icon>-->
+<!--      </template>-->
+<!--    </b-navbar-toggle>-->
 
-    <b-collapse id="navbar-toggle-collapse" is-nav>
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item :to="{ name: 'Host'}">Host a game?</b-nav-item>
-        <b-nav-item href="#" @click="toggleDarkMode">{{darkModeText}}</b-nav-item>
-        <b-nav-item><small>Version: v{{version}}</small></b-nav-item>
-      </b-navbar-nav>
-    </b-collapse>
+<!--    <b-collapse id="navbar-toggle-collapse" is-nav>-->
+<!--      <b-navbar-nav class="ml-auto">-->
+<!--        <b-nav-item :to="{ name: 'Host'}">Host a game?</b-nav-item>-->
+<!--        <b-nav-item href="#" @click="toggleDarkMode">{{darkModeText}}</b-nav-item>-->
+<!--        <b-nav-item><small>Version: v{{version}}</small></b-nav-item>-->
+<!--      </b-navbar-nav>-->
+<!--    </b-collapse>-->
   </b-navbar>
 </template>
 

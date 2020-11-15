@@ -7,7 +7,7 @@
         <br>
         <small>
           During a little bit of a
-          <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">🔒down</a>.
+          <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">🔒down</a> • Version: v{{version}}
         </small>
       </p>
     </b-row>
@@ -15,12 +15,16 @@
 </template>
 
 <script>
+import { version } from '../../../package.json';
+
 export default {
   name: 'Footer',
   components: {},
   props: {},
   data() {
-    return {};
+    return {
+      version,
+    };
   },
   computed: {},
   methods: {},

@@ -1,17 +1,14 @@
 <template>
-    <layout-desktop class="host" :show-footer="true">
-      <HostAQuiz/>
+    <layout-desktop class="host">
     </layout-desktop>
 </template>
 
 <script>
-import HostAQuiz from '@/components/host/HostAQuiz.vue';
 import LayoutDesktop from '../layouts/LayoutDesktop.vue';
 
 export default {
   name: 'Host',
   components: {
-    HostAQuiz,
     LayoutDesktop,
   },
   mounted() {},

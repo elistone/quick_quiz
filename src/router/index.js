@@ -13,6 +13,7 @@ const routes = [
     component: Home,
     meta: {
       title: '',
+      transitionName: 'slide',
       metaTags: [
         {
           name: 'description',
@@ -30,7 +31,8 @@ const routes = [
     name: 'Join',
     component: () => import(/* webpackChunkName: "buzzer" */ '../views/Join.vue'),
     meta: {
-      title: '',
+      title: 'Join a quiz',
+      transitionName: 'slide',
       metaTags: [
         {
           name: 'description',
@@ -49,6 +51,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "buzzer" */ '../views/Buzzer.vue'),
     meta: {
       title: 'Select your buzzer',
+      transitionName: 'slide',
       metaTags: [
         {
           name: 'description',
@@ -66,7 +69,8 @@ const routes = [
     name: 'Play',
     component: () => import(/* webpackChunkName: "play" */ '../views/Play.vue'),
     meta: {
-      title: 'Let\'s play!',
+      title: 'Quiz time!',
+      transitionName: 'slide',
       metaTags: [
         {
           name: 'description',
@@ -85,6 +89,24 @@ const routes = [
     component: () => import(/* webpackChunkName: "play" */ '../views/Host.vue'),
     meta: {
       title: 'Host a game?',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Host your own quiz!',
+        },
+        {
+          property: 'og:description',
+          content: 'Host your own quiz!',
+        },
+      ],
+    },
+  },
+  {
+    path: '/host/dashboard',
+    name: 'HostDashboard',
+    component: () => import(/* webpackChunkName: "play" */ '../views/HostDashboard.vue'),
+    meta: {
+      title: 'Host Dashboard',
       metaTags: [
         {
           name: 'description',

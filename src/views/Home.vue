@@ -1,12 +1,12 @@
 <template>
-  <layout-mobile class="home">
+  <layout-mobile :show-footer="true" class="home">
     <JumbotronWrapper>
       <Logo/>
       <p class="lead text-center">
         <span class="text-play">Play</span>&nbsp;
-        <span class="text-online">online</span>&nbsp;
         <span class="text-quizzes">quizzes</span>&nbsp;
-        <span class="text-today">today!</span>
+        <span class="text-online">online</span>&nbsp;
+        <span class="text-now">now!</span>
       </p>
 
       <template v-slot:footer>

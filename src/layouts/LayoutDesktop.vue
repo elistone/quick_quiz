@@ -10,7 +10,7 @@
         </div>
       </div>
     </b-container>
-    <Footer/>
+    <Footer v-if="showFooter"/>
   </div>
 </template>
 
@@ -21,7 +21,12 @@ import Footer from './components/Footer.vue';
 export default {
   name: 'LayoutDesktop',
   components: { NavBar, Footer },
-  props: {},
+  props: {
+    showFooter: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {};
   },

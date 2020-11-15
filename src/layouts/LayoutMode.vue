@@ -1,6 +1,6 @@
 <template>
   <div class="layout-mode" v-cloak>
-    <transition name="slide" mode="out-in">
+    <transition :name="transitionName" mode="out-in">
       <slot/>
     </transition>
   </div>
@@ -13,7 +13,12 @@ const lightTheme = () => import('@/assets/scss/custom_light.scss');
 export default {
   name: 'LayoutMode',
   components: {},
-  props: {},
+  props: {
+    transitionName: {
+      type: String,
+      default: 'none',
+    },
+  },
   data() {
     return {
       hidden: true,
@@ -65,15 +70,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-.slide-leave-active,
-.slide-enter-active {
-  transition: 0.25s;
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition-duration: 0.5s;
+  transition-property: height, opacity, transform;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
   overflow: hidden;
 }
-.slide-enter {
-  transform: translate(100%, 0);
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(2em, 0);
 }
-.slide-leave-to {
-  transform: translate(-100%, 0);
+
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-2em, 0);
 }
 </style>

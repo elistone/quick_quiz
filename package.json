@@ -1,6 +1,6 @@
 {
   "name": "quiz_now",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "A Vue.js version of https://www.speedquizzing.com/",
   "author": "Eli Stone <3li.stone@gmail.com>",
   "private": true,

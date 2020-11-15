@@ -3,10 +3,16 @@
     <main class="mobile-layout-main">
       <slot/>
     </main>
+    <footer v-if="showFooter">
+      <small>Version: v{{ version }}</small>
+    </footer>
   </div>
 </template>
 
 <script>
+import { version } from '../../package.json';
+
+
 export default {
   name: 'LayoutMobile',
   components: {},
@@ -19,9 +25,15 @@ export default {
       type: Boolean,
       default: true,
     },
+    showFooter: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
-    return {};
+    return {
+      version,
+    };
   },
   computed: {
     useFlexboxClass() {
@@ -57,6 +69,10 @@ export default {
       flex-grow: 1;
       display: flex;
     }
+  }
+  footer {
+    text-align: center;
+    padding: 0.5rem 0;
   }
 }
 </style>
