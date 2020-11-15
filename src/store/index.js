@@ -14,7 +14,7 @@ export default new Vuex.Store({
       gameId: '',
       locked: false,
       question: {
-        type: c.questionType.LETTERS,
+        type: c.questionType.NONE,
         text: '',
       },
       imageAudio: {
@@ -22,7 +22,7 @@ export default new Vuex.Store({
         show: false,
         url: '',
       },
-      state: c.states.SHOW_QUESTION,
+      state: c.states.HOW_TO_PLAY,
     },
     options: {
       goWide: {
@@ -58,14 +58,20 @@ export default new Vuex.Store({
     setDarkMode(state, mode) {
       state.darkMode = mode;
     },
-    setLockedPlayerLockedState(state, isLocked) {
+    setQuizLockedState(state, isLocked) {
       state.quiz.locked = isLocked;
+    },
+    setQuizState(state, quizState) {
+      state.quiz.state = quizState;
+    },
+    setQuizQuestionType(state, type) {
+      state.quiz.question.type = type;
+    },
+    setQuizQuestionText(state, text) {
+      state.quiz.question.text = text;
     },
     setPlayerAnswer(state, answer) {
       state.player.answer.push(answer);
-    },
-    setHostAnswer(state, answer) {
-      state.host.question.answer = answer;
     },
   },
   actions: {
@@ -86,9 +92,9 @@ export default new Vuex.Store({
 
         // lock the questions if everything correct
         if (!goWide && answersCount >= 1) {
-          commit('setLockedPlayerLockedState', true);
+          commit('setQuizLockedState', true);
         } else if (goWide && answersCount >= goWideCount) {
-          commit('setLockedPlayerLockedState', true);
+          commit('setQuizLockedState', true);
         }
       }
     },

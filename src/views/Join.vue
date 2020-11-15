@@ -2,13 +2,17 @@
   <layout-mobile class="join">
     <JumbotronWrapper>
       <h2>Join a game</h2>
-      <join-form />
+      <join-form/>
       <template v-slot:footer>
         <b-row class="buttons">
           <b-col>
             <b-button class="btn-block" variant="danger" :to="{ name: 'Home' }">Back</b-button>
           </b-col>
           <b-col>
+            <b-button
+              class="btn-block"
+              variant="primary"
+              v-on:click="submitPressed">Connect</b-button>
           </b-col>
         </b-row>
       </template>
@@ -23,11 +27,16 @@ import LayoutMobile from '../layouts/LayoutMobile.vue';
 import JoinForm from '../components/forms/JoinForm.vue';
 
 export default {
-  name: 'Home',
+  name: 'Join',
   components: {
     JumbotronWrapper,
     JoinForm,
     LayoutMobile,
+  },
+  methods: {
+    submitPressed() {
+      this.$root.$emit('join_quiz_button_pressed');
+    },
   },
 };
 </script>

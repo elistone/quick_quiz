@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="the-player-badge">
-      <PlayerBadge :name="form.name" />
+      <PlayerBadge :name="form.name"/>
     </div>
     <b-form @submit="onSubmit">
       <b-form-group
@@ -40,7 +40,12 @@
         </b-input-group>
       </b-form-group>
 
-      <b-button class="btn-block" type="submit" variant="primary">Join Quiz</b-button>
+      <b-button
+        ref="joinFormSubmit"
+        class="btn-block d-none"
+        type="submit"
+        variant="primary">Submit
+      </b-button>
     </b-form>
   </div>
 </template>
@@ -68,10 +73,18 @@ export default {
       return `${this.name.maxlength - this.form.name.length}`;
     },
   },
+  mounted() {
+    this.$root.$on('join_quiz_button_pressed', () => {
+      this.triggerSubmit();
+    });
+  },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
       this.$router.push({ name: 'Buzzer' });
+    },
+    triggerSubmit() {
+      this.$refs.joinFormSubmit.click();
     },
   },
   directives: {
@@ -92,6 +105,7 @@ export default {
 .btn-block {
   flex: 1;
 }
+
 .the-player-badge {
   text-align: center;
   margin: 1rem auto;
