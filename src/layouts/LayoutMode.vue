@@ -1,6 +1,8 @@
 <template>
   <div class="layout-mode" v-cloak>
-    <slot/>
+    <transition name="slide" mode="out-in">
+      <slot/>
+    </transition>
   </div>
 </template>
 
@@ -63,5 +65,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-
+.slide-leave-active,
+.slide-enter-active {
+  transition: 0.25s;
+  overflow: hidden;
+}
+.slide-enter {
+  transform: translate(100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}
 </style>

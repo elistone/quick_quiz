@@ -17,7 +17,7 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 // prevent double tap & pinch zoom from being used
 Vue.use(PreventDoubleTap);
-// enable browser dection
+// enable browser detection
 Vue.use(browserDetect);
 // enable toasted
 Vue.use(Toasted, { position: 'top-center', duration: 3500 });
