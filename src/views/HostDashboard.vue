@@ -1,14 +1,17 @@
 <template>
     <layout-desktop class="host">
+      <Dashboard />
     </layout-desktop>
 </template>
 
 <script>
+import Dashboard from '@/components/host/Dashboard.vue';
 import LayoutDesktop from '../layouts/LayoutDesktop.vue';
 
 export default {
   name: 'Host',
   components: {
+    Dashboard,
     LayoutDesktop,
   },
   mounted() {},
