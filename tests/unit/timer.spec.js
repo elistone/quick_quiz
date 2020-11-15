@@ -1,6 +1,6 @@
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import { mount } from '@vue/test-utils';
-import Timer from '@/components/Timer.vue';
+import Timer from '@/components/other/Timer.vue';
 import Vue from 'vue';
 
 Vue.use(BootstrapVue);

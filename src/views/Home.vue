@@ -2,7 +2,12 @@
   <layout-mobile class="home">
     <JumbotronWrapper>
       <Logo/>
-      <p class="lead text-center">Play online quizzes today!</p>
+      <p class="lead text-center">
+        <span class="text-play">Play</span>&nbsp;
+        <span class="text-online">online</span>&nbsp;
+        <span class="text-quizzes">quizzes</span>&nbsp;
+        <span class="text-today">today!</span>
+      </p>
 
       <template v-slot:footer>
         <b-row class="buttons">
@@ -43,4 +48,5 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+</style>

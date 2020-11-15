@@ -9,7 +9,7 @@
                 <b-spinner class="timer-spinner"
                            :label="current + 'seconds'"
                            :variant="colours"
-                           :type="[running ? 'border' : 'grow']">
+                           :type="running ? 'border' : 'grow'">
                 </b-spinner>
                 <span class="timer-numbers text-black">{{ current }}</span>
               </div>

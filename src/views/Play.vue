@@ -32,7 +32,7 @@ export default {
       return this.$store.state.constants.states;
     },
     currentGameState() {
-      return this.$store.state.player.state;
+      return this.$store.state.quiz.state;
     },
     useFlexbox() {
       if (this.currentGameState === this.gameStates.HOW_TO_PLAY) {

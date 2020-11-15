@@ -12,6 +12,17 @@ export default new Vuex.Store({
     constants: c,
     quiz: {
       gameId: '',
+      locked: false,
+      question: {
+        type: c.questionType.LETTERS,
+        text: '',
+      },
+      imageAudio: {
+        incoming: false,
+        show: false,
+        url: '',
+      },
+      state: c.states.SHOW_QUESTION,
     },
     options: {
       goWide: {
@@ -24,13 +35,8 @@ export default new Vuex.Store({
     },
     player: {
       name: '',
-      locked: false,
       answer: [],
-      question: {
-        type: c.questionType.LETTERS,
-        text: '',
-      },
-      state: c.states.SHOW_QUESTION,
+      selected_buzzer: '',
     },
   },
   mutations: {
@@ -53,7 +59,7 @@ export default new Vuex.Store({
       state.darkMode = mode;
     },
     setLockedPlayerLockedState(state, isLocked) {
-      state.player.locked = isLocked;
+      state.quiz.locked = isLocked;
     },
     setPlayerAnswer(state, answer) {
       state.player.answer.push(answer);
@@ -68,7 +74,7 @@ export default new Vuex.Store({
       const goWideCount = state.options.goWide.number;
       let answersCount = state.player.answer.length;
 
-      if (state.player.question.type !== state.constants.questionType.BUZZER) {
+      if (state.quiz.question.type !== state.constants.questionType.BUZZER) {
         // update answers
         if (answersCount < 1) {
           commit('setPlayerAnswer', answer);

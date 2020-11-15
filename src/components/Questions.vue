@@ -25,7 +25,7 @@
         :locked="isLocked"
         v-if="questionSelectedType === questionType.BUZZER"
       />
-      <AudioImageLoader />
+      <AudioImageLoader v-if="incomingImageAudio" />
     </div>
     <div class="center" v-if="questionSelectedType === questionType.NONE">
       <b-alert :show="questionSelectedType === questionType.NONE">
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import Timer from '@/components/Timer.vue';
+import Timer from '@/components/other/Timer.vue';
 import QuestionLetters from '@/components/questions/QuestionLetters.vue';
 import QuestionNumbers from '@/components/questions/QuestionNumbers.vue';
 import QuestionMultiple from '@/components/questions/QuestionMultiple.vue';
@@ -58,13 +58,16 @@ export default {
   },
   computed: {
     questionSelectedType() {
-      return this.$store.state.player.question.type;
+      return this.$store.state.quiz.question.type;
     },
     questionType() {
       return this.$store.state.constants.questionType;
     },
     isLocked() {
-      return this.$store.state.player.locked;
+      return this.$store.state.quiz.locked;
+    },
+    incomingImageAudio() {
+      return this.$store.state.quiz.imageAudio.incoming;
     },
     answer: {
       set(answer) {

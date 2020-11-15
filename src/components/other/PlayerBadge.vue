@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     getName() {
-      return this.name !== '' ? this.name.trim() : '?';
+      return this.name !== '' ? this.name.replace(/\s+/g, ' ').trim() : '?';
     },
     backgroundColour() {
       const str = this.getName;
