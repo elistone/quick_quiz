@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import DashboardCard from '@/components/other/DashboardCard.vue';
+import DashboardCard from '@/components/host/components/DashboardCard.vue';
+import Utils from '@/utils/utils';
 
 export default {
   name: 'Statistics',
@@ -65,9 +66,7 @@ export default {
       this.currentTime = `${hours}:${minutes}:${seconds}`;
     },
     copyGameCode() {
-      const { protocol } = window.location;
-      const slashes = protocol.concat('//');
-      const host = slashes.concat(window.location.host);
+      const host = Utils.getCurrentUrl();
       const url = `${host}/join#${this.gameCode}`;
       this.$clipboard(url);
       this.$bvToast.toast(`Quick url for "${this.gameCode}", copied to clipboard.`, {

@@ -17,8 +17,9 @@
           required
           placeholder="Game ID"
           autocomplete="off"
-          maxlength="4"
+          :maxlength="validation.gameid.maxlength"
           pattern='^[a-zA-Z]+$'
+          :disabled="autoSetup"
         />
       </b-form-group>
 
@@ -33,7 +34,7 @@
             v-model="form.name"
             required
             placeholder="Enter your team name"
-            :maxlength="name.maxlength"
+            :maxlength="validation.name.maxlength"
             autocomplete="off"
             pattern='^[a-zA-Z0-9\s]+$'
           />
@@ -56,21 +57,53 @@ import PlayerBadge from '@/components/other/PlayerBadge.vue';
 export default {
   name: 'JoinForm',
   components: { PlayerBadge },
-  props: {},
+  props: {
+    gameId: {
+      type: String,
+      default: '',
+    },
+    name: {
+      type: String,
+      default: '',
+    },
+    host: {
+      type: Boolean,
+      default: false,
+    },
+    autoSetup: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       form: {
         gameid: '',
         name: '',
       },
-      name: {
-        maxlength: 25,
+      validation: {
+        name: {
+          maxlength: 25,
+        },
+        gameid: {
+          maxlength: 4,
+        },
       },
     };
   },
+  created() {
+    this.$nextTick(function () {
+      if (typeof this.gameId !== 'undefined' && this.gameId !== '') {
+        this.form.gameid = this.gameId;
+      }
+      if (typeof this.name !== 'undefined' && this.name !== '') {
+        this.form.name = this.name;
+      }
+    });
+  },
   computed: {
     maxLengthValue() {
-      return `${this.name.maxlength - this.form.name.length}`;
+      return `${this.validation.name.maxlength - this.form.name.length}`;
     },
   },
   mounted() {

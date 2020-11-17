@@ -4,8 +4,11 @@
       <b-col md="2">
         <Sidebar />
       </b-col>
-      <b-col md="10">
+      <b-col md="6">
         <Statistics :game-code="gameCode" :players="players" :leader="leader"/>
+      </b-col>
+      <b-col md="4">
+        <MobileView :game-code="gameCode" />
       </b-col>
     </b-row>
   </div>
@@ -14,10 +17,11 @@
 <script>
 import Sidebar from '@/components/host/components/Sidebar.vue';
 import Statistics from '@/components/host/components/Statistics.vue';
+import MobileView from '@/components/host/components/MobileView.vue';
 
 export default {
   name: 'Dashboard',
-  components: { Statistics, Sidebar },
+  components: { MobileView, Statistics, Sidebar },
   data() {
     return {
       gameCode: 'HFGX',

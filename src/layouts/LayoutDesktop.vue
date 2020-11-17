@@ -3,7 +3,7 @@
     <div class="row mb-5">
       <nav-bar/>
     </div>
-    <b-container style="margin-bottom: 8rem;">
+    <b-container fluid style="margin-bottom: 8rem;">
       <div class="row">
         <div class="col-sm-12 bg-faded">
           <slot/>

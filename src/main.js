@@ -2,6 +2,7 @@
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import browserDetect from 'vue-browser-detect-plugin';
 import Clipboard from 'v-clipboard';
+import VueCrypt from 'vue-crypt';
 import Vue from 'vue';
 import PreventDoubleTap from './plugins/preventDoubleTap';
 import App from './App.vue';
@@ -21,6 +22,8 @@ Vue.use(PreventDoubleTap);
 Vue.use(browserDetect);
 // enable clipboard
 Vue.use(Clipboard);
+// view crypt
+Vue.use(VueCrypt);
 
 new Vue({
   router,

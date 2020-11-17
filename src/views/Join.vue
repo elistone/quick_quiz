@@ -2,7 +2,7 @@
   <layout-mobile class="join">
     <JumbotronWrapper>
       <h2>Join a game</h2>
-      <join-form/>
+      <join-form :game-id="gameCode" :name="name" :auto-setup="autoSetup" :host="true"/>
       <template v-slot:footer>
         <b-row class="buttons">
           <b-col>
@@ -12,7 +12,8 @@
             <b-button
               class="btn-block"
               variant="primary"
-              v-on:click="submitPressed">Connect</b-button>
+              v-on:click="submitPressed">Connect
+            </b-button>
           </b-col>
         </b-row>
       </template>
@@ -23,6 +24,7 @@
 <script>
 // @ is an alias to /src
 import JumbotronWrapper from '@/layouts/components/JumbotronWrapper.vue';
+import Utils from '@/utils/utils';
 import LayoutMobile from '../layouts/LayoutMobile.vue';
 import JoinForm from '../components/forms/JoinForm.vue';
 
@@ -32,6 +34,28 @@ export default {
     JumbotronWrapper,
     JoinForm,
     LayoutMobile,
+  },
+  data() {
+    return {
+      gameCode: '',
+      name: '',
+      autoSetup: false,
+    };
+  },
+  created() {
+    const data = Utils.getHashData();
+    if (data.length > 4) {
+      this.$aes.setKey(process.env.VUE_APP_CRYPT_KEY);
+      const decrypted = this.$aes.decrypt(data);
+      const details = JSON.parse(decrypted);
+      this.gameCode = details.gameCode || '';
+      this.name = details.name || '';
+      this.autoSetup = !!(details.name && details.gameCode);
+      this.host = true;
+    } else if (data.length === 4) {
+      this.gameCode = data;
+      this.autoSetut = true;
+    }
   },
   methods: {
     submitPressed() {
