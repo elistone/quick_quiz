@@ -1,7 +1,7 @@
 // include custom styles
-import Toasted from 'vue-toasted';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import browserDetect from 'vue-browser-detect-plugin';
+import Clipboard from 'v-clipboard';
 import Vue from 'vue';
 import PreventDoubleTap from './plugins/preventDoubleTap';
 import App from './App.vue';
@@ -19,8 +19,8 @@ Vue.use(IconsPlugin);
 Vue.use(PreventDoubleTap);
 // enable browser detection
 Vue.use(browserDetect);
-// enable toasted
-Vue.use(Toasted, { position: 'top-center', duration: 3500 });
+// enable clipboard
+Vue.use(Clipboard);
 
 new Vue({
   router,
