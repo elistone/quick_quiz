@@ -54,7 +54,7 @@ export default {
       this.host = true;
       setTimeout(() => {
         this.submitPressed();
-      }, 500);
+      }, 100);
     } else if (data.length === 4) {
       this.gameCode = data;
       this.autoSetup = true;

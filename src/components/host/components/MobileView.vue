@@ -55,7 +55,7 @@ export default {
 
   .mobile-iframe {
     width: 80%;
-    height: 640px;
+    height: 40rem;
     border: 0;
   }
 }

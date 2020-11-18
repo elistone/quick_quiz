@@ -39,6 +39,12 @@ export default new Vuex.Store({
       selectedBuzzer: '',
       hostPreview: false,
     },
+    host: {
+      questions: {
+        data: {},
+        currentQuestion: '',
+      },
+    },
   },
   mutations: {
     // tries to load the state from localstorage

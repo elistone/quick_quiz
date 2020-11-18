@@ -30,7 +30,11 @@ export default {
         const fromDepth = fromPath.split('/').length;
         transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
       }
-      this.transitionName = transitionName || DEFAULT_TRANSITION;
+      if (this.isHost) {
+        this.transitionName = DEFAULT_TRANSITION;
+      } else {
+        this.transitionName = transitionName || DEFAULT_TRANSITION;
+      }
       next();
     });
   },
@@ -41,6 +45,9 @@ export default {
     isIosClass() {
       const isIos = this.$browserDetect.isIOS;
       return `ios-${isIos ? 'yes' : 'no'}`;
+    },
+    isHost() {
+      return this.$store.state.player.hostPreview;
     },
   },
   methods: {},

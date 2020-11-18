@@ -6,6 +6,7 @@
       </b-col>
       <b-col md="6">
         <Statistics :game-code="gameCode" :players="players" :leader="leader"/>
+        <DashboardQuestions />
       </b-col>
       <b-col md="4">
         <MobileView :game-code="gameCode" />
@@ -18,10 +19,13 @@
 import Sidebar from '@/components/host/components/Sidebar.vue';
 import Statistics from '@/components/host/components/Statistics.vue';
 import MobileView from '@/components/host/components/MobileView.vue';
+import DashboardQuestions from '@/components/host/components/DashboardQuestions.vue';
 
 export default {
   name: 'Dashboard',
-  components: { MobileView, Statistics, Sidebar },
+  components: {
+    DashboardQuestions, MobileView, Statistics, Sidebar,
+  },
   data() {
     return {
       gameCode: 'HFGX',
