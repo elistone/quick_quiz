@@ -1,5 +1,5 @@
 <template>
-    <layout-desktop class="host">
+    <layout-desktop :is-fluid="true" class="host">
       <Dashboard />
     </layout-desktop>
 </template>

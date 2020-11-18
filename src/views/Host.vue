@@ -1,5 +1,5 @@
 <template>
-    <layout-desktop class="host" :show-footer="true">
+    <layout-desktop class="host" :show-footer="true" :show-back-button="true">
       <HostAQuiz/>
     </layout-desktop>
 </template>

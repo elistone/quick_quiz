@@ -1,6 +1,13 @@
 <template>
   <b-navbar style="width: 100%;" toggleable type="dark" variant="dark">
-    <b-navbar-brand :to="{ name: 'Home' }">Quiz Now</b-navbar-brand>
+    <b-navbar-brand :to="{ name: homeUrl }">Quiz Now</b-navbar-brand>
+
+    <b-navbar-nav v-if="showBackButton" class="ml-auto">
+      <b-button size="sm" class="my-2 my-sm-0" :to="{ name: 'Home' }">
+        <b-icon-chevron-left />
+        Back to menu
+      </b-button>
+    </b-navbar-nav>
 
 <!--    <b-navbar-toggle target="navbar-toggle-collapse">-->
 <!--      <template v-slot:default="{ expanded }">-->
@@ -25,7 +32,16 @@ import { version } from '../../../package.json';
 export default {
   name: 'NavBar',
   components: {},
-  props: {},
+  props: {
+    homeUrl: {
+      type: String,
+      default: 'Home',
+    },
+    showBackButton: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       version,

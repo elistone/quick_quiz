@@ -1,9 +1,9 @@
 <template>
   <div id="full-page-wrapper" class="container-fluid">
     <div class="row mb-5">
-      <nav-bar/>
+      <nav-bar :home-url="homeUrl" :show-back-button="showBackButton"/>
     </div>
-    <b-container fluid style="margin-bottom: 8rem;">
+    <b-container :fluid="isFluid" style="margin-bottom: 8rem;">
       <div class="row">
         <div class="col-sm-12 bg-faded">
           <slot/>
@@ -23,6 +23,18 @@ export default {
   components: { NavBar, Footer },
   props: {
     showFooter: {
+      type: Boolean,
+      default: false,
+    },
+    isFluid: {
+      type: Boolean,
+      default: false,
+    },
+    homeUrl: {
+      type: String,
+      default: 'Host',
+    },
+    showBackButton: {
       type: Boolean,
       default: false,
     },
