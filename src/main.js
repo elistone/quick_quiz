@@ -28,11 +28,11 @@ Vue.use(VueCrypt);
 new Vue({
   router,
   store,
-  // beforeCreate: () => store.commit('initialiseStore'),
+  beforeCreate: () => store.commit('initialiseStore'),
   render: (h) => h(App),
 }).$mount('#app');
 
 // set the store data into localstorage
-// store.subscribe((mutation, state) => {
-//   localStorage.setItem('store', JSON.stringify(state));
-// });
+store.subscribe((mutation, state) => {
+  localStorage.setItem('store', JSON.stringify(state));
+});

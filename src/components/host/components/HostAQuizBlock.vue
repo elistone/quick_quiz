@@ -12,7 +12,7 @@
               <span class="buttons">
               <b-button
                 variant="success"
-                class="btn-block" :to="{ name: 'HostDashboard' }">Start now
+                class="btn-block" v-on:click="startNewQuiz">Start now
               </b-button>
               <b-button
                 variant="primary"
@@ -28,8 +28,10 @@
 </template>
 
 <script>
+import Utils from '@/utils/utils';
+
 export default {
-  name: 'HostAQuiz',
+  name: 'HostAQuizBlock',
   components: { },
   data() {
     return {
@@ -40,7 +42,13 @@ export default {
   },
   computed: {
   },
-  methods: {},
+  methods: {
+    startNewQuiz() {
+      const gameId = Utils.getRandomGameCode();
+      this.$store.commit('setQuizGameId', gameId);
+      this.$router.push({ name: 'HostDashboard' });
+    },
+  },
 };
 </script>
 

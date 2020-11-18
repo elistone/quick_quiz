@@ -72,6 +72,7 @@ export default {
       this.$bvToast.toast(`Quick url for "${this.gameCode}", copied to clipboard.`, {
         title: 'Copied to clipboard!',
         toaster: 'b-toaster-top-right',
+        variant: 'info',
         solid: true,
       });
     },

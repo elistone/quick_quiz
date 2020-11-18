@@ -1,17 +1,26 @@
 <template>
     <layout-desktop class="host" :show-footer="true" :show-back-button="true">
-      <HostAQuiz/>
+      <b-row class="host-blocks">
+        <b-col>
+            <HostAQuizBlock />
+        </b-col>
+        <b-col>
+            <CreateQuestionsBlock />
+        </b-col>
+      </b-row>
     </layout-desktop>
 </template>
 
 <script>
-import HostAQuiz from '@/components/host/HostAQuiz.vue';
+import HostAQuizBlock from '@/components/host/components/HostAQuizBlock.vue';
+import CreateQuestionsBlock from '@/components/host/components/CreateQuestionsBlock.vue';
 import LayoutDesktop from '../layouts/LayoutDesktop.vue';
 
 export default {
   name: 'Host',
   components: {
-    HostAQuiz,
+    CreateQuestionsBlock,
+    HostAQuizBlock,
     LayoutDesktop,
   },
   mounted() {},

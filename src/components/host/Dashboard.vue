@@ -28,7 +28,6 @@ export default {
   },
   data() {
     return {
-      gameCode: 'HFGX',
       players: 0,
       leader: 'Unknown',
     };
@@ -36,7 +35,11 @@ export default {
   mounted() {
 
   },
-  computed: {},
+  computed: {
+    gameCode() {
+      return this.$store.state.quiz.gameId;
+    },
+  },
   methods: {},
 };
 </script>
