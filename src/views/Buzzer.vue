@@ -2,7 +2,7 @@
   <layout-mobile :hideNav="true" class="buzzer">
     <JumbotronWrapper>
       <h2>Buzzer sound</h2>
-      <song-selector />
+      <song-selector/>
     </JumbotronWrapper>
   </layout-mobile>
 </template>
@@ -19,6 +19,17 @@ export default {
     JumbotronWrapper,
     SongSelector,
     LayoutMobile,
+  },
+  computed: {
+    isHost() {
+      return this.$store.state.player.hostPreview;
+    },
+  },
+  created() {
+    if (this.isHost) {
+      this.$store.commit('setQuizState', this.$store.state.constants.states.SHOW_QUESTION);
+      this.$router.push({ name: 'Play' });
+    }
   },
 };
 </script>

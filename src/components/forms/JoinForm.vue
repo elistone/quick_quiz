@@ -92,7 +92,7 @@ export default {
     };
   },
   created() {
-    this.$nextTick(function () {
+    this.$nextTick(() => {
       if (typeof this.gameId !== 'undefined' && this.gameId !== '') {
         this.form.gameid = this.gameId;
       }
@@ -114,6 +114,9 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
+      this.$store.commit('setQuizGameId', this.form.gameid);
+      this.$store.commit('setPlayerName', this.form.name);
+      this.$store.commit('setPlayerIsHostPreview', this.host);
       this.$router.push({ name: 'Buzzer' });
     },
     triggerSubmit() {

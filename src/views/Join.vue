@@ -52,9 +52,12 @@ export default {
       this.name = details.name || '';
       this.autoSetup = !!(details.name && details.gameCode);
       this.host = true;
+      setTimeout(() => {
+        this.submitPressed();
+      }, 500);
     } else if (data.length === 4) {
       this.gameCode = data;
-      this.autoSetut = true;
+      this.autoSetup = true;
     }
   },
   methods: {

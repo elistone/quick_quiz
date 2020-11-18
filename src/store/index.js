@@ -36,7 +36,8 @@ export default new Vuex.Store({
     player: {
       name: '',
       answer: [],
-      selected_buzzer: '',
+      selectedBuzzer: '',
+      hostPreview: false,
     },
   },
   mutations: {
@@ -58,6 +59,21 @@ export default new Vuex.Store({
     setDarkMode(state, mode) {
       state.darkMode = mode;
     },
+    setPlayerName(state, name) {
+      state.player.name = name;
+    },
+    setPlayerAnswer(state, answer) {
+      state.player.answer.push(answer);
+    },
+    setPlayerSelectedBuzzer(state, buzzer) {
+      state.player.selectedBuzzer = buzzer;
+    },
+    setPlayerIsHostPreview(state, isHostPreview) {
+      state.player.hostPreview = isHostPreview;
+    },
+    setQuizGameId(state, gameId) {
+      state.quiz.gameId = gameId;
+    },
     setQuizLockedState(state, isLocked) {
       state.quiz.locked = isLocked;
     },
@@ -69,9 +85,6 @@ export default new Vuex.Store({
     },
     setQuizQuestionText(state, text) {
       state.quiz.question.text = text;
-    },
-    setPlayerAnswer(state, answer) {
-      state.player.answer.push(answer);
     },
   },
   actions: {

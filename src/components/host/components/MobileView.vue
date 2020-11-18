@@ -54,7 +54,7 @@ export default {
   text-align: center;
 
   .mobile-iframe {
-    width: 70%;
+    width: 80%;
     height: 640px;
     border: 0;
   }
